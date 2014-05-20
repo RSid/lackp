@@ -38,7 +38,7 @@ def make_roster_array(file_name, team_name)
   array_of_hashes.each do |hashes|
 
     if hashes[:Team]==team_name
-      @players.push(hashes[:First_Name] + " " + hashes[:Last_Name])
+      @players.push(hashes[:First_Name] + " " + hashes[:Last_Name] + ", " + hashes[:Position].tr("_"," "))
 
     end
   end
@@ -64,7 +64,7 @@ def make_position_player_array(file_name, position_name)
   array_of_hashes.each do |hashes|
 
     if hashes[:Position]==position_name
-      @position_players.push(hashes[:First_Name] + " " + hashes[:Last_Name])
+      @position_players.push(hashes[:First_Name] + " " + hashes[:Last_Name] + ", " + hashes[:Team].tr("_"," "))
 
     end
   end
