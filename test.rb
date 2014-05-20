@@ -51,4 +51,19 @@ def make_team_array(file_name)
   @teams.uniq
 end
 
-print make_team_array('sroster.csv')
+def make_roster_array(file_name, team_name)
+
+  array_of_hashes=get_data(file_name)
+  @players=[]
+
+  array_of_hashes.each do |hashes|
+
+    if hashes[:Team]==team_name
+      @players.push(hashes[:First_Name] + " " + hashes[:Last_Name])
+
+    end
+  end
+  @players
+end
+
+print make_roster_array('sroster.csv',"Flinestone Fire")

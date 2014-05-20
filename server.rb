@@ -15,7 +15,6 @@ def get_data(file_name)
 
     @all_data.push( {:Team => team, :First_Name => first, :Last_Name => last, :Position => position} )
   end
-
   @all_data
 end
 
@@ -31,6 +30,20 @@ def make_team_array(file_name)
   @teams.uniq
 end
 
+def make_roster_array(file_name, team_name)
+
+  array_of_hashes=get_data(file_name)
+  @players=[]
+
+  array_of_hashes.each do |hashes|
+
+    if hashes[:Team]==team_name
+      @players.push(hashes[:First_Name] + " " + hashes[:Last_Name])
+
+    end
+  end
+  @players
+end
 
 
 get '/' do
@@ -39,9 +52,12 @@ get '/' do
 end
 
 
-get '/teams/:team_name' do
+get '/team_rosters/:team_name' do
   #will want to somehow make this list be dictated by above
   #and have links created from @teams
-  @team = params[:team_name]
+  @team_rosters = params[:team_name]
+
+  @players=make_roster_array('sroster.csv',@team_rosters)
+
   erb :team
 end

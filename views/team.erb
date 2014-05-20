@@ -9,7 +9,12 @@
     <h1>Team Roster</h1>
 
     <ul>
-      The team is <%= @team %>
+      <!--The team has <%= @players %>-->
+
+      <% @players.each do |player| %>
+        <li><%= player %></li>
+
+      <% end %>
 
       <!--Will want to get player hash info into here-->
     </ul>
