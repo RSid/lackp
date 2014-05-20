@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Kickball Stuff</title>
+    <link rel="stylesheet" href="kick.css" />
+  </head>
+
+  <body>
+    <h1>Kickball teams</h1>
+
+    <ul>
+      <% @teams.each do |team| %>
+        <li><%= team %></li>
+
+      <% end %>
+    </ul>
+  </body>
+</html>
