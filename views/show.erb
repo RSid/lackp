@@ -15,6 +15,16 @@
 
 
       <% end %>
-    </ul>
+      </ul>
+
+      <h1>Kickball Positions</h1>
+      <ul>
+
+      <% @positions.each do |position| %>
+        <li><a href= <%= "positions/#{position}" %>><%= position.tr("_"," ") %></a></li>
+
+      <% end %>
+      </ul>
+
   </body>
 </html>
