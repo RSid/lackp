@@ -9,8 +9,10 @@
     <h1>Kickball teams</h1>
 
     <ul>
+
       <% @teams.each do |team| %>
-        <li><%= team %></li>
+        <li><a href= <%= "team_rosters/#{team}" %>><%= team.tr("_"," ") %></a></li>
+
 
       <% end %>
     </ul>

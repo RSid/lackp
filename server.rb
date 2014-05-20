@@ -11,7 +11,7 @@ def get_data(file_name)
     first=row["first_name"]
     last=row["last_name"]
     position=row["position"]
-    team=row["team"]
+    team=(row["team"]).tr(" ","_")
 
     @all_data.push( {:Team => team, :First_Name => first, :Last_Name => last, :Position => position} )
   end
